@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
+		<TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
 		<Nullable>enable</Nullable>
 
 		<PackageId>RazorForms.Bootstrap5</PackageId>
 		<Title>RazorForms.Bootstrap5</Title>
-		<PackageVersion>1.0.0</PackageVersion>
+		<PackageVersion>2.0.0</PackageVersion>
 		<PackageReleaseNotes>
 			Initial release
 		</PackageReleaseNotes>
@@ -22,7 +22,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="RazorForms" Version="1.0.0" PrivateAssets="All" />
+		<ProjectReference
+			Condition=" '$(Configuration)' != 'Release' "
+			Include="..\RazorForms\RazorForms.csproj"/>
+		<PackageReference
+			Condition=" '$Configuration)' == 'Release' "
+			Include="RazorForms" Version="1.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
