@@ -9,13 +9,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-builder.Services.UseRazorForms<CustomOptions>(CustomSetup);
+// builder.Services.UseRazorForms<CustomOptions>(CustomSetup);
 
 // builder.Services.UseRazorFormsWithMaterialize<MaterializeOptions>(MaterializeSetup);
 
 // builder.Services.UseRazorFormsWithBulma<RazorFormsOptions>(BulmaSetup);
 
-// builder.Services.UseRazorFormsWithBootstrap5<RazorFormsOptions>(Bootstrap5Setup);
+builder.Services.UseRazorFormsWithBootstrap5<RazorFormsOptions>(Bootstrap5Setup);
 // builder.Services.UseRazorFormsWithBootstrap5FloatingLabels<RazorFormsOptions>(Bootstrap5Setup);
 
 var app = builder.Build();
