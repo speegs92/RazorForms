@@ -36,7 +36,8 @@ public static class RazorFormsExtensions
 			.TryAddElementGenerator<SelectInputTagHelper, SelectInputGenerator>()
 			.TryAddElementGenerator<CheckInputGroupTagHelper, CheckInputGroupGenerator>()
 			.TryAddElementGenerator<CheckInputTagHelper, CheckInputGenerator>()
-			.TryAddElementGenerator<RadioInputGroupTagHelper, RadioInputGroupGenerator>();
+			.TryAddElementGenerator<RadioInputGroupTagHelper, RadioInputGroupGenerator>()
+			.TryAddElementGenerator<RadioInputTagHelper, RadioInputGenerator>();
 	}
 
 	/// <summary>
