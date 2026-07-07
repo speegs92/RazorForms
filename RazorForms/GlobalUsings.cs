@@ -1,0 +1,14 @@
+﻿global using Microsoft.AspNetCore.Mvc.ModelBinding;
+global using Microsoft.AspNetCore.Mvc.TagHelpers;
+global using Microsoft.AspNetCore.Mvc.Rendering;
+global using Microsoft.AspNetCore.Mvc.ViewFeatures;
+global using Microsoft.AspNetCore.Razor.TagHelpers;
+global using System;
+global using System.Linq;
+global using System.Collections;
+global using System.Collections.Generic;
+global using System.Threading.Tasks;
+global using RazorForms.Generators;
+global using RazorForms.Models;
+global using RazorForms.Options;
+global using RazorForms.TagHelpers;
