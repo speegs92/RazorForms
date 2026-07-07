@@ -31,7 +31,8 @@ public static class RazorFormsExtensions
 			self.TryAdd(new ServiceDescriptor(t, o));
 		}
 
-		return self;
+		return self
+			.TryAddElementGenerator<TextInputTagHelper, TextInputGenerator>();
 	}
 
 	/// <summary>

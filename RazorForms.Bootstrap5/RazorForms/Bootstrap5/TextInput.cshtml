@@ -1,0 +1,22 @@
+﻿@model MarkupModel
+
+<div>
+	<label
+		for="@Model.Id"
+		class="form-label">
+		@if (Model.ChildContent.IsEmptyOrWhiteSpace)
+		{
+			@Model.LabelText
+		}
+		else
+		{
+			@Model.ChildContent
+		}
+	</label>
+
+	@Model.InputHtml
+
+	<partial
+		name="~/RazorForms/Bootstrap5/ErrorList.cshtml" 
+		model="@Model.Errors"/>
+</div>
