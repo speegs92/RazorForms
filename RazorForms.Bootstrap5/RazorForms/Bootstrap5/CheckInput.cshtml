@@ -1,0 +1,9 @@
+﻿@model MarkupModel
+
+<div class="form-check">
+	@Model.InputHtml
+
+	<label class="form-check-label" for="@Model.Id">
+		@Model.ChildContent
+	</label>
+</div>
