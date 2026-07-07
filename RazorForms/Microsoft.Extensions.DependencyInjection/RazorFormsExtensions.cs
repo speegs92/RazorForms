@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using RazorForms.Options;
+﻿using Microsoft.Extensions.DependencyInjection.Extensions;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.DependencyInjection;
@@ -73,4 +70,19 @@ public static class RazorFormsExtensions
 	    Action<RazorFormsOptions> action,
 	    params Type[] types)
 		=> UseRazorForms<RazorFormsOptions>(self, action, types);
+
+	/// <summary>
+	/// Adds an <see cref="IFormElementGenerator{T}"/> for the given tag helper if one isn't already registered
+	/// </summary>
+	/// <param name="self">The service collection</param>
+	/// <typeparam name="TTagHelper">The type of the tag helper</typeparam>
+	/// <typeparam name="TGenerator">The type of the generator to add</typeparam>
+	/// <returns>The service collection</returns>
+	public static IServiceCollection TryAddElementGenerator<TTagHelper, TGenerator>(
+		this IServiceCollection self)
+		where TGenerator : class, IFormElementGenerator<TTagHelper>
+	{
+		self.TryAddScoped<IFormElementGenerator<TTagHelper>, TGenerator>();
+		return self;
+	}
 }
