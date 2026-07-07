@@ -1,0 +1,11 @@
+﻿@model MarkupModel
+
+<fieldset>
+	<legend>@Model.LabelText</legend>
+
+	@Model.InputHtml
+
+	<partial
+		name="~/RazorForms/Bootstrap5/ErrorList.cshtml"
+		model="@Model.Errors"/>
+</fieldset>
