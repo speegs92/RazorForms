@@ -110,6 +110,7 @@ public static class RazorFormsBootstrap5Extensions
 		where T : RazorFormsOptions
 	{
 		// Text input
+		o.TextInputOptions.TemplatePath ??= "~/RazorForms/Bootstrap5/TextInput.cshtml";
 		o.TextInputOptions.InputClasses = Utilities.MergeCssStrings("form-control", o.TextInputOptions.InputClasses);
 		o.TextInputOptions.InputValidClasses = Utilities.MergeCssStrings("is-valid", o.TextInputOptions.InputValidClasses);
 		o.TextInputOptions.InputInvalidClasses = Utilities.MergeCssStrings("is-invalid", o.TextInputOptions.InputInvalidClasses);
@@ -120,19 +121,24 @@ public static class RazorFormsBootstrap5Extensions
 		o.TextAreaInputOptions.InputInvalidClasses = Utilities.MergeCssStrings("is-invalid", o.TextAreaInputOptions.InputInvalidClasses);
 
 		// Select input
+		o.SelectInputOptions.TemplatePath ??= "~/RazorForms/Bootstrap5/SelectInput.cshtml";
 		o.SelectInputOptions.InputClasses = Utilities.MergeCssStrings("form-control", o.SelectInputOptions.InputClasses);
 		o.SelectInputOptions.InputValidClasses = Utilities.MergeCssStrings("is-valid", o.SelectInputOptions.InputValidClasses);
 		o.SelectInputOptions.InputInvalidClasses = Utilities.MergeCssStrings("is-invalid", o.SelectInputOptions.InputInvalidClasses);
 
 		// Check input
+		o.CheckInputOptions.TemplatePath ??= "~/RazorForms/Bootstrap5/CheckInput.cshtml";
 		o.CheckInputOptions.InputClasses = Utilities.MergeCssStrings("form-check-input", o.CheckInputOptions.InputClasses);
 
 		// Check input group
+		o.CheckInputGroupOptions.TemplatePath ??= "~/RazorForms/Bootstrap5/Fieldset.cshtml";
 
 		// Radio input
+		o.RadioInputOptions.TemplatePath ??= "~/RazorForms/Bootstrap5/RadioInput.cshtml";
 		o.RadioInputOptions.InputClasses = Utilities.MergeCssStrings("form-check-input", o.RadioInputOptions.InputClasses);
 
 		// Radio input group
+		o.RadioInputGroupOptions.TemplatePath ??= "~/RazorForms/Bootstrap5/Fieldset.cshtml";
 	}
 
 	public static void ApplyBootstrapFloatingLabel<T>(T o)
