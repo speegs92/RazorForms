@@ -1,61 +1,14 @@
-﻿using System.Linq;
-using System.Text;
-using System.Text.Encodings.Web;
-using Microsoft.AspNetCore.Mvc.TagHelpers;
-using Microsoft.AspNetCore.Razor.TagHelpers;
-using RazorForms.Options;
+﻿using System.Text.Encodings.Web;
 
 namespace RazorForms;
 
 public static class Utilities
 {
 	/// <summary>
-	/// Appends a value to the given <see cref="StringBuilder"/> instance, including a leading space if the instance is not currently empty
+	/// An empty <see cref="DefaultTagHelperContent"/> wrapped in a task
 	/// </summary>
-	/// <param name="self">the <see cref="StringBuilder"/> instance</param>
-	/// <param name="input">the value to append</param>
-	public static void AppendWithLeadingSpace(this StringBuilder self, string? input)
-	{
-		if (string.IsNullOrEmpty(input))
-		{
-			return;
-		}
-
-		var value = self.Length == 0 ? input : $" {input}";
-		self.Append(value);
-	}
-
-	/// <summary>
-	/// Generates the &lt;label&gt; inner text and surrounds it with an HTML tag if necessary
-	/// </summary>
-	/// <param name="options">the current tag helper's <see cref="FormComponentOptions"/></param>
-	/// <param name="text">the inner text to display in the &lt;label&gt;</param>
-	/// <returns></returns>
-	public static string GenerateLabelText(FormComponentOptions options, string text)
-	{
-		return string.IsNullOrWhiteSpace(options.LabelTextHtmlWrapper)
-			? text
-			: $"<{options.LabelTextHtmlWrapper}>{text}</{options.LabelTextHtmlWrapper}>";
-	}
-
-	/// <summary>
-	/// Gets the set of HTML attributes to pass to the &lt;input&gt;
-	/// </summary>
-	/// <param name="attributes">The full list of attributes passed to the tag helper</param>
-	/// <returns>The attributes intended for the &lt;input&gt; tag</returns>
-	public static TagHelperAttributeList GetInputAttributes(TagHelperAttributeList attributes)
-	{
-		var classAttribute = attributes.FirstOrDefault(a => a.Name == "class");
-		var inputAttributes = attributes.Where(a => a.Name != "class").ToArray();
-		attributes.Clear();
-
-		if (classAttribute is not null)
-		{
-			attributes.Add(classAttribute);
-		}
-
-		return new TagHelperAttributeList(inputAttributes);
-	}
+	public static readonly Func<bool, HtmlEncoder, Task<TagHelperContent>> DefaultTagHelperContent =
+		(_, _) => Task.FromResult((TagHelperContent)new DefaultTagHelperContent());
 
 	/// <summary>
 	/// Merges two CSS strings while accounting that either or both may be null
@@ -79,28 +32,5 @@ public static class Utilities
 		}
 
 		return $"{a} {b}";
-	}
-
-	/// <summary>
-	/// Applies multiple space-separated CSS classes directly to a <see cref="TagHelperOutput"/>
-	/// </summary>
-	/// <param name="output">The <see cref="TagHelperOutput"/> receiving the classes</param>
-	/// <param name="classNames">A space-separated list of CSS classes to apply</param>
-	public static void AddClassesToOutput(TagHelperOutput output, string? classNames)
-	{
-		if (string.IsNullOrWhiteSpace(classNames))
-		{
-			return;
-		}
-
-		foreach (var c in classNames.Split(' '))
-		{
-			if (string.IsNullOrEmpty(c))
-			{
-				continue;
-			}
-
-			output.AddClass(c, HtmlEncoder.Default);
-		}
 	}
 }
