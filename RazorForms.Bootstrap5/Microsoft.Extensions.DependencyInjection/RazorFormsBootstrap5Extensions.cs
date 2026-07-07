@@ -116,6 +116,7 @@ public static class RazorFormsBootstrap5Extensions
 		o.TextInputOptions.InputInvalidClasses = Utilities.MergeCssStrings("is-invalid", o.TextInputOptions.InputInvalidClasses);
 
 		// Text area input
+		o.TextAreaInputOptions.TemplatePath ??= "~/RazorForms/Bootstrap5/TextAreaInput.cshtml";
 		o.TextAreaInputOptions.InputClasses = Utilities.MergeCssStrings("form-control", o.TextAreaInputOptions.InputClasses);
 		o.TextAreaInputOptions.InputValidClasses = Utilities.MergeCssStrings("is-valid", o.TextAreaInputOptions.InputValidClasses);
 		o.TextAreaInputOptions.InputInvalidClasses = Utilities.MergeCssStrings("is-invalid", o.TextAreaInputOptions.InputInvalidClasses);
