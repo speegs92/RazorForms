@@ -8,10 +8,6 @@ namespace Microsoft.Extensions.DependencyInjection;
 
 public static class RazorFormsExtensions
 {
-	public const string TemplateBasePath = "~/RazorFormsTemplates";
-	public const string ValidityAwareContentPartial = $"{TemplateBasePath}/Partials/ValidityAwareContent.cshtml";
-	public const string ContentPartial = $"{TemplateBasePath}/Partials/Content.cshtml";
-
 	/// <summary>
 	/// Adds RazorForms support using the supplied <see cref="RazorFormsOptions"/> instance
 	/// </summary>
@@ -31,42 +27,6 @@ public static class RazorFormsExtensions
 			typeof(RazorFormsOptions),
 			typeof(T)
 		};
-
-		// Set up template paths
-		if (string.IsNullOrWhiteSpace(o.TextInputOptions.TemplatePath))
-		{
-			o.TextInputOptions.TemplatePath = ValidityAwareContentPartial;
-		}
-
-		if (string.IsNullOrWhiteSpace(o.TextAreaInputOptions.TemplatePath))
-		{
-			o.TextAreaInputOptions.TemplatePath = ValidityAwareContentPartial;
-		}
-
-		if (string.IsNullOrWhiteSpace(o.SelectInputOptions.TemplatePath))
-		{
-			o.SelectInputOptions.TemplatePath = ValidityAwareContentPartial;
-		}
-
-		if (string.IsNullOrWhiteSpace(o.CheckInputGroupOptions.TemplatePath))
-		{
-			o.CheckInputGroupOptions.TemplatePath = ValidityAwareContentPartial;
-		}
-
-		if (string.IsNullOrWhiteSpace(o.RadioInputGroupOptions.TemplatePath))
-		{
-			o.RadioInputGroupOptions.TemplatePath = ValidityAwareContentPartial;
-		}
-
-		if (string.IsNullOrWhiteSpace(o.CheckInputOptions.TemplatePath))
-		{
-			o.CheckInputOptions.TemplatePath = ContentPartial;
-		}
-
-		if (string.IsNullOrWhiteSpace(o.RadioInputOptions.TemplatePath))
-		{
-			o.RadioInputOptions.TemplatePath = ContentPartial;
-		}
 
 		// Add options to DI
 		foreach (var t in typesList)
