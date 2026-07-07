@@ -32,7 +32,8 @@ public static class RazorFormsExtensions
 		}
 
 		return self
-			.TryAddElementGenerator<TextInputTagHelper, TextInputGenerator>();
+			.TryAddElementGenerator<TextInputTagHelper, TextInputGenerator>()
+			.TryAddElementGenerator<SelectInputTagHelper, SelectInputGenerator>();
 	}
 
 	/// <summary>
