@@ -1,8 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
 		<TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
 		<Nullable>enable</Nullable>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
 
 		<PackageId>RazorForms.Bootstrap5</PackageId>
 		<Title>RazorForms.Bootstrap5</Title>
