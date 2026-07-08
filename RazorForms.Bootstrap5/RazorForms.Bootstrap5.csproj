@@ -27,8 +27,8 @@
 			Condition=" '$(Configuration)' != 'Release' "
 			Include="..\RazorForms\RazorForms.csproj"/>
 		<PackageReference
-			Condition=" '$Configuration)' == 'Release' "
-			Include="RazorForms" Version="1.0.0" />
+			Condition=" '$(Configuration)' == 'Release' "
+			Include="RazorForms" Version="2.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
